@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Space & Live Clock</title>
+  <meta name="description" content="A modern, personalized personal dashboard displaying dynamic real-time clock, calendar, day progress, and interactive widgets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="violet">
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <div class="app-container">
+    <!-- Header Navigation -->
+    <header class="top-nav">
+      <div class="brand">
+        <span class="brand-badge">LIVE DASHBOARD</span>
+      </div>
+      <div class="header-actions">
+        <!-- Palette switcher -->
+        <div class="theme-picker" id="themePicker" title="Change color accent">
+          <button class="palette-dot dot-violet active" data-color="violet" aria-label="Violet theme" id="btnThemeViolet"></button>
+          <button class="palette-dot dot-cyan" data-color="cyan" aria-label="Cyan theme" id="btnThemeCyan"></button>
+          <button class="palette-dot dot-emerald" data-color="emerald" aria-label="Emerald theme" id="btnThemeEmerald"></button>
+          <button class="palette-dot dot-amber" data-color="amber" aria-label="Amber theme" id="btnThemeAmber"></button>
+        </div>
+
+        <!-- Format toggle -->
+        <button class="pill-btn" id="formatToggleBtn" title="Toggle 12h / 24h format">
+          <span id="formatToggleLabel">24H MODE</span>
+        </button>
+
+        <!-- Ambient sound toggle -->
+        <button class="icon-btn" id="soundToggleBtn" title="Play ambient focus audio" aria-label="Toggle ambient focus audio">
+          <svg id="soundIconOff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg id="soundIconOn" class="hidden" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-grid">
+      <!-- Profile & Greeting Card -->
+      <section class="glass-card hero-card" id="profileCard">
+        <div class="profile-header">
+          <div class="avatar-wrapper">
+            <img src="./avatar.jpg" alt="Profile avatar" class="avatar-img" id="userAvatar">
+            <span class="status-indicator" title="Online now"></span>
+          </div>
+          <div class="profile-info">
+            <div class="greeting-tag">
+              <span id="greetingEmoji">👋</span>
+              <span id="greetingText">Good morning</span>
+            </div>
+            <div class="name-container">
+              <h1 class="user-name" id="userNameDisplay">Alex Morgan</h1>
+              <button class="edit-name-btn" id="editNameBtn" title="Edit your name" aria-label="Edit name">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="user-bio" id="userBio">Crafting ideas, exploring possibilities, and making every second count.</p>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-label">TIMEZONE</span>
+            <span class="stat-val" id="timezoneBadge">Detecting...</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">DAY OF YEAR</span>
+            <span class="stat-val" id="dayOfYearBadge">--</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">WEEK</span>
+            <span class="stat-val" id="weekOfYearBadge">--</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Centerpiece: Live Real-Time Clock Card -->
+      <section class="glass-card clock-card" id="clockSection">
+        <div class="card-tag">CURRENT LOCAL TIME</div>
+        
+        <div class="clock-display-wrap">
+          <!-- Circular second progress SVG ring -->
+          <div class="clock-visual">
+            <svg class="clock-ring-svg" viewBox="0 0 260 260">
+              <circle class="ring-bg" cx="130" cy="130" r="115"></circle>
+              <circle class="ring-progress" id="secondRing" cx="130" cy="130" r="115"></circle>
+            </svg>
+            <div class="clock-ring-center">
+              <div class="digital-clock" id="digitalClock">
+                <span class="time-segment" id="clockHours">00</span>
+                <span class="time-colon">:</span>
+                <span class="time-segment" id="clockMinutes">00</span>
+                <span class="time-colon">:</span>
+                <span class="time-segment sec-segment" id="clockSeconds">00</span>
+              </div>
+              <div class="ampm-badge" id="clockAmPm">AM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Formatted Date -->
+        <div class="date-container">
+          <div class="date-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="date-text" id="fullDateDisplay">Wednesday, September 16, 2026</div>
+        </div>
+
+        <!-- Day Progress Bar -->
+        <div class="day-progress-container">
+          <div class="progress-info">
+            <span class="progress-title">Today's Progress</span>
+            <span class="progress-pct" id="dayProgressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="dayProgressBar" style="width: 0%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secondary Info: Global Timezones -->
+      <section class="glass-card world-clocks-card" id="worldClocksCard">
+        <div class="card-header">
+          <h2 class="card-title">World Clocks</h2>
+          <span class="badge-mini">GLOBAL SYNC</span>
+        </div>
+        <div class="world-clock-list">
+          <div class="world-clock-item">
+            <div class="city-info">
+              <span class="city-name">London</span>
+              <span class="city-tz">GMT+1</span>
+            </div>
+            <div class="city-time" id="timeLondon">--:--</div>
+          </div>
+          <div class="world-clock-item">
+            <div class="city-info">
+              <span class="city-name">New York</span>
+              <span class="city-tz">EDT (UTC-4)</span>
+            </div>
+            <div class="city-time" id="timeNewYork">--:--</div>
+          </div>
+          <div class="world-clock-item">
+            <div class="city-info">
+              <span class="city-name">Tokyo</span>
+              <span class="city-tz">JST (UTC+9)</span>
+            </div>
+            <div class="city-time" id="timeTokyo">--:--</div>
+          </div>
+          <div class="world-clock-item">
+            <div class="city-info">
+              <span class="city-name">Sydney</span>
+              <span class="city-tz">AEST (UTC+10)</span>
+            </div>
+            <div class="city-time" id="timeSydney">--:--</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Focus & Daily Thought Widget -->
+      <section class="glass-card quote-card" id="quoteCard">
+        <div class="card-header">
+          <h2 class="card-title">Daily Inspiration</h2>
+          <button class="icon-refresh-btn" id="refreshQuoteBtn" title="New quote" aria-label="Refresh quote">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </button>
+        </div>
+        <blockquote class="quote-content">
+          <p id="quoteText">"Time is what we want most, but what we use worst."</p>
+          <cite id="quoteAuthor">— William Penn</cite>
+        </blockquote>
+
+        <!-- Quick Focus Goal Bar -->
+        <div class="focus-input-wrap">
+          <label for="focusInput" class="focus-label">🎯 TODAY'S MAIN FOCUS</label>
+          <input type="text" id="focusInput" class="focus-input" placeholder="What is your priority today?" maxlength="70">
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Personal Page • Live Precision Clock • Built with pure HTML, CSS & JavaScript</p>
+    </footer>
+  </div>
+
+  <!-- Name Edit Modal -->
+  <div class="modal-backdrop" id="nameModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Customize Your Profile</h3>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="nameForm" class="modal-form">
+        <div class="form-group">
+          <label for="nameInput">Your Name</label>
+          <input type="text" id="nameInput" required maxlength="40" placeholder="e.g., Alex Morgan">
+        </div>
+        <div class="form-group">
+          <label for="bioInput">Subtitle / Bio</label>
+          <input type="text" id="bioInput" maxlength="120" placeholder="e.g., Software Engineer & Explorer">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="modalCancelBtn">Cancel</button>
+          <button type="submit" class="btn-primary" id="modalSaveBtn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
