@@ -2,6 +2,10 @@
 
 A modern, high-aesthetic personal dashboard and live clock web application featuring glassmorphism design, real-time widgets, day progress tracker, world clocks, ambient audio, and interactive themes.
 
+<p align="center">
+  <img src="./demo.png" alt="Personal Space & Live Clock Dashboard Preview" width="800" />
+</p>
+
 ## ✨ Features
 
 - 🕒 **Precision Live Clock**: Millisecond-accurate digital clock with 12H/24H format toggle.
