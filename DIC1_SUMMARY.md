@@ -9,7 +9,8 @@
 - **課程單元**：Do In Class 1 (DIC 1)
 - **作者 / 學生**：卓威宏
 - **日期**：2026 年 09 月 16 日
-- **GitHub 專案倉庫**：https://github.com/Wesley0628c/0916
+- **GitHub 專案倉庫**：https://github.com/Wesley0628c/DIC1_PersonalPage
+- **Live Website**：https://wesley0628c.github.io/DIC1_PersonalPage/
 - **核心技術**：HTML5 / Vanilla CSS (Glassmorphism) / JavaScript (ES6+) / Web Audio API / Git
 
 ---

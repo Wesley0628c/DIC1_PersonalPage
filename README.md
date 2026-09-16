@@ -1,7 +1,7 @@
 # 卓威宏 (Wesley Cho) | Personal Space & Live Clock Dashboard
 
-> 🌐 **Live Website**: [https://wesley0628c.github.io/0916/](https://wesley0628c.github.io/0916/)  
-> 📦 **GitHub Repository**: [https://github.com/Wesley0628c/0916](https://github.com/Wesley0628c/0916)  
+> 🌐 **Live Website**: [https://wesley0628c.github.io/DIC1_PersonalPage/](https://wesley0628c.github.io/DIC1_PersonalPage/)  
+> 📦 **GitHub Repository**: [https://github.com/Wesley0628c/DIC1_PersonalPage](https://github.com/Wesley0628c/DIC1_PersonalPage)  
 > 👤 **Author**: 卓威宏 (Wesley Cho)
 
 A modern, high-aesthetic personal dashboard and live clock web application featuring glassmorphism design, real-time widgets, day progress tracker, world clocks, ambient audio, and interactive themes.
