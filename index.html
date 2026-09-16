@@ -67,7 +67,7 @@
               <span id="greetingText">Good morning</span>
             </div>
             <div class="name-container">
-              <h1 class="user-name" id="userNameDisplay">Alex Morgan</h1>
+              <h1 class="user-name" id="userNameDisplay">卓威宏</h1>
               <button class="edit-name-btn" id="editNameBtn" title="Edit your name" aria-label="Edit name">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 20h9"></path>
@@ -75,7 +75,13 @@
                 </svg>
               </button>
             </div>
-            <p class="user-bio" id="userBio">Crafting ideas, exploring possibilities, and making every second count.</p>
+            <div class="profile-badges">
+              <span class="spec-badge">🎓 資訊工程系 CS</span>
+              <span class="spec-badge">🤖 AI & Machine Learning</span>
+              <span class="spec-badge">🌐 Web Development</span>
+              <span class="spec-badge">📡 AIoT & Embedded</span>
+            </div>
+            <p class="user-bio" id="userBio">熱愛探索 AI 智慧應用、物聯網與現代 Web 開發。Crafting ideas, exploring possibilities, and making every second count.</p>
           </div>
         </div>
 
@@ -205,6 +211,117 @@
         <div class="focus-input-wrap">
           <label for="focusInput" class="focus-label">🎯 TODAY'S MAIN FOCUS</label>
           <input type="text" id="focusInput" class="focus-input" placeholder="What is your priority today?" maxlength="70">
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="glass-card full-width-card skills-card" id="skillsSection">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">🛠 專業技能 (Core Skills)</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px;">持續精進的技術棧與工程工具</p>
+          </div>
+          <span class="badge-mini">TECH STACK</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="skill-cat-title">
+              <span>💻 程式語言 (Languages)</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C / C++</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">HTML5 / CSS3</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-title">
+              <span>🤖 人工智慧與資料 (AI & Data)</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Deep Learning</span>
+              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag">Data Analysis</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-title">
+              <span>🌐 Web 與物聯網 (Web & AIoT)</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Responsive Design</span>
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">IoT / Embedded</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="glass-card full-width-card projects-card" id="projectsSection">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">🚀 作品與專案 (Featured Projects)</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px;">課堂實作與個人開發專案</p>
+          </div>
+          <span class="badge-mini">PORTFOLIO</span>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <span class="project-badge-featured">FEATURED</span>
+            <div>
+              <h3 class="project-title">Personal Space & Live Clock Dashboard (DIC-1)</h3>
+              <p class="project-desc">
+                個人化動態時間儀表板系統，具備高精度數位時鐘、世界時區即時換算、今日進度百分比、Web Audio 專注音效與動態毛玻璃主題切換。
+              </p>
+              <div class="project-tech-list">
+                <span class="project-tech-item">HTML5</span>
+                <span class="project-tech-item">CSS3 Glassmorphism</span>
+                <span class="project-tech-item">JavaScript (ES6+)</span>
+                <span class="project-tech-item">Web Audio API</span>
+                <span class="project-tech-item">Git / GitHub Pages</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://wesley0628c.github.io/0916/" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-primary">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Wesley0628c/0916" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-outline">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub Repo
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <span class="project-badge-planned">IN PROGRESS</span>
+            <div>
+              <h3 class="project-title">AI 智慧學習助理 (AI Study Assistant)</h3>
+              <p class="project-desc">
+                本學期規劃專案：結合大型語言模型 (LLM) 與即時筆記整理技術，打造支援程式碼除錯、概念解說與個人化學習路徑規劃的智慧助理工具。
+              </p>
+              <div class="project-tech-list">
+                <span class="project-tech-item">Python</span>
+                <span class="project-tech-item">LLM API</span>
+                <span class="project-tech-item">Vector DB</span>
+                <span class="project-tech-item">Web App</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wesley0628c" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-outline">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Project Repo
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

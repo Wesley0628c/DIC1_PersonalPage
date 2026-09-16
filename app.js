@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // State
   let is24Hour = localStorage.getItem('clock_24h') === 'true';
   let activeTheme = localStorage.getItem('page_theme') || 'violet';
-  let userName = localStorage.getItem('personal_user_name') || 'Alex Morgan';
-  let userBio = localStorage.getItem('personal_user_bio') || 'Crafting ideas, exploring possibilities, and making every second count.';
+  let userName = localStorage.getItem('personal_user_name') || '卓威宏';
+  let userBio = localStorage.getItem('personal_user_bio') || '熱愛探索 AI 智慧應用、物聯網與現代 Web 開發。Crafting ideas, exploring possibilities, and making every second count.';
   let focusGoal = localStorage.getItem('personal_focus_goal') || '';
 
   // Elements
