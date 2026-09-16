@@ -123,6 +123,22 @@
                 <span class="time-segment sec-segment" id="clockSeconds">00</span>
               </div>
               <div class="ampm-badge" id="clockAmPm">AM</div>
+              <script>
+                (function(){
+                  try {
+                    var d = new Date();
+                    var h = String(d.getHours()).padStart(2, '0');
+                    var m = String(d.getMinutes()).padStart(2, '0');
+                    var s = String(d.getSeconds()).padStart(2, '0');
+                    var eh = document.getElementById('clockHours');
+                    var em = document.getElementById('clockMinutes');
+                    var es = document.getElementById('clockSeconds');
+                    if (eh) eh.textContent = h;
+                    if (em) em.textContent = m;
+                    if (es) es.textContent = s;
+                  } catch(e){}
+                })();
+              </script>
             </div>
           </div>
         </div>
