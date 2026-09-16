@@ -5,9 +5,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   // State
   let is24Hour = localStorage.getItem('clock_24h') === 'true';
-  let activeTheme = localStorage.getItem('page_theme') || 'violet';
-  let userName = localStorage.getItem('personal_user_name') || '卓威宏';
-  let userBio = localStorage.getItem('personal_user_bio') || '熱愛探索 AI 智慧應用、物聯網與現代 Web 開發。Crafting ideas, exploring possibilities, and making every second count.';
+  let rawName = localStorage.getItem('personal_user_name');
+  let userName = (rawName && rawName !== 'Alex Morgan') ? rawName : '卓威宏';
+  let rawBio = localStorage.getItem('personal_user_bio');
+  let userBio = (rawBio && !rawBio.startsWith('Crafting ideas')) ? rawBio : '熱愛探索 AI 智慧應用、物聯網與現代 Web 開發。Crafting ideas, exploring possibilities, and making every second count.';
   let focusGoal = localStorage.getItem('personal_focus_goal') || '';
 
   // Elements
